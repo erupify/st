@@ -3,7 +3,7 @@ session_start();
 
 // بيانات المدير (في الواقع يتم جلبها من قاعدة بيانات مشفرة)
 $admin_email = "admin@salamtour.com";
-$admin_pass  = "salam2024"; 
+$admin_pass  = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
