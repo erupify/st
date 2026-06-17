@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتائج البحث | Salam Tour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        /* تخصيص شريط التمرير للفلاتر */
+        .filter-scroll::-webkit-scrollbar { width: 5px; }
+        .filter-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- 1. Navigation Bar (نفس الهيدر السابق) -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="رابط_شعارك_هنا.png" alt="Salam Tour Logo" class="h-10 w-auto ml-3">
+                    <span class="text-2xl font-800 text-blue-700 font-bold">Salam Tour</span>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-reverse space-x-8 font-semibold text-gray-700 text-sm">
+                <a href="index.html" class="hover:text-blue-600">الرئيسية</a>
+                <a href="#" class="text-blue-600">نتائج البحث</a>
+                <a href="#" class="hover:text-blue-600">الفنادق الشريكة</a>
+            </div>
+            <div class="flex items-center space-x-reverse space-x-4">
+                <i class="fas fa-user-circle text-gray-400 text-2xl"></i>
+                <span class="hidden md:block text-sm font-bold">حسابي</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Search Summary Bar (تعديل سريع للبحث) -->
+    <div class="bg-blue-700 text-white py-4">
+        <div class="container mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-reverse space-x-4">
+                <div class="bg-blue-800 px-4 py-2 rounded-lg text-sm">
+                    <i class="fas fa-calendar-alt ml-2 text-blue-300"></i> 15 يناير - 20 يناير
+                </div>
+                <div class="bg-blue-800 px-4 py-2 rounded-lg text-sm">
+                    <i class="fas fa-map-marker-alt ml-2 text-blue-300"></i> مطار الرياض الدولي
+                </div>
+            </div>
+            <button class="bg-white text-blue-700 px-6 py-2 rounded-lg font-bold text-sm hover:bg-gray-100 transition">
+                تعديل البحث
+            </button>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- 3. Sidebar Filters (الفلاتر الجانبية) -->
+            <aside class="w-full lg:w-1/4 space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 sticky top-24">
+                    <h3 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fas fa-sliders-h ml-2 text-blue-600"></i> تصفية النتائج
+                    </h3>
+                    
+                    <!-- فئة السيارة -->
+                    <div class="mb-6">
+                        <h4 class="font-bold text-sm text-gray-600 mb-3 border-b pb-2">فئة السيارة</h4>
+                        <div class="space-y-2 text-sm">
+                            <label class="flex items-center cursor-pointer hover:text-blue-600 transition">
+                                <input type="checkbox" class="ml-2 w-4 h-4 rounded text-blue-600" checked> اقتصادية
+                            </label>
+                            <label class="flex items-center cursor-pointer hover:text-blue-600 transition">
+                                <input type="checkbox" class="ml-2 w-4 h-4 rounded text-blue-600"> عائلية (SUV)
+                            </label>
+                            <label class="flex items-center cursor-pointer hover:text-blue-600 transition">
+                                <input type="checkbox" class="ml-2 w-4 h-4 rounded text-blue-600"> فاخرة
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- السعر لكل يوم -->
+                    <div class="mb-6">
+                        <h4 class="font-bold text-sm text-gray-600 mb-3 border-b pb-2">نطاق السعر (يومياً)</h4>
+                        <input type="range" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                        <div class="flex justify-between text-xs font-bold mt-2 text-gray-500">
+                            <span>50$</span>
+                            <span>500$</span>
+                        </div>
+                    </div>
+
+                    <!-- الفنادق الشريكة -->
+                    <div class="mb-6">
+                        <h4 class="font-bold text-sm text-gray-600 mb-3 border-b pb-2">متوفرة في فندق</h4>
+                        <select class="w-full border p-2 rounded-lg text-sm bg-gray-50 outline-none focus:ring-1 focus:ring-blue-500">
+                            <option>عرض جميع المواقع</option>
+                            <option>فندق هيلتون</option>
+                            <option>فندق ماريوت</option>
+                            <option>فندق شيراتون</option>
+                        </select>
+                    </div>
+
+                    <button class="w-full bg-blue-50 text-blue-600 font-bold py-2 rounded-lg border border-blue-100 hover:bg-blue-600 hover:text-white transition">
+                        تطبيق الفلاتر
+                    </button>
+                </div>
+            </aside>
+
+            <!-- 4. Main Results Area (منطقة النتائج) -->
+            <main class="w-full lg:w-3/4">
+                <!-- Sorting & Info -->
+                <div class="flex justify-between items-center mb-6 bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                    <p class="text-gray-600 text-sm font-bold">تم العثور على <span class="text-blue-600">24</span> سيارة متاحة</p>
+                    <div class="flex items-center space-x-reverse space-x-2">
+                        <span class="text-xs text-gray-500">ترتيب حسب:</span>
+                        <select class="text-sm font-bold bg-transparent outline-none text-gray-700 cursor-pointer">
+                            <option>الأقل سعراً</option>
+                            <option>الأعلى تقييماً</option>
+                            <option>الأحدث موديل</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Car List -->
+                <div class="grid grid-cols-1 gap-6">
+                    
+                    <!-- Result Item 1 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col md:flex-row hover:shadow-md transition group">
+                        <div class="md:w-1/3 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80" alt="Car" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1 rounded">الأكثر طلباً</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold text-gray-800">مرسيدس بنز E-Class 2023</h3>
+                                    <span class="text-blue-600 text-sm font-bold bg-blue-50 px-2 py-1 rounded"><i class="fas fa-star ml-1 text-yellow-500"></i> 4.9</span>
+                                </div>
+                                <p class="text-gray-400 text-xs mt-1"><i class="fas fa-hotel ml-1"></i> متاح في فندق هيلتون</p>
+                                
+                                <div class="grid grid-cols-2 gap-4 my-6">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-users ml-2 text-blue-400 w-5"></i> 5 مقاعد
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-suitcase ml-2 text-blue-400 w-5"></i> 2 حقيبة كبيرة
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-cog ml-2 text-blue-400 w-5"></i> أتوماتيك
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-snowflake ml-2 text-blue-400 w-5"></i> تكييف مركزي
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-end pt-4 border-t border-gray-100">
+                                <div>
+                                    <p class="text-xs text-gray-400">السعر لـ 5 أيام</p>
+                                    <div class="text-2xl font-extrabold text-blue-700">650$</div>
+                                    <p class="text-xs text-green-600 font-bold">تشمل التأمين والضريبة</p>
+                                </div>
+                                <a href="booking.html" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold ... text-center block">
+    احجز الآن
+</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result Item 2 (SUV) -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col md:flex-row hover:shadow-md transition group">
+                        <div class="md:w-1/3 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=500&q=80" alt="Car" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold text-gray-800">تويوتا لاند كروزر VXR</h3>
+                                    <span class="text-blue-600 text-sm font-bold bg-blue-50 px-2 py-1 rounded"><i class="fas fa-star ml-1 text-yellow-500"></i> 4.8</span>
+                                </div>
+                                <p class="text-gray-400 text-xs mt-1"><i class="fas fa-map-marker-alt ml-1"></i> استلام من المطار</p>
+                                
+                                <div class="grid grid-cols-2 gap-4 my-6">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-users ml-2 text-blue-400 w-5"></i> 7 مقاعد
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-mountain ml-2 text-blue-400 w-5"></i> دفع رباعي 4x4
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-gas-pump ml-2 text-blue-400 w-5"></i> ديزل
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-shield-alt ml-2 text-blue-400 w-5"></i> تأمين شامل
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-end pt-4 border-t border-gray-100">
+                                <div>
+                                    <p class="text-xs text-gray-400">السعر لـ 5 أيام</p>
+                                    <div class="text-2xl font-extrabold text-blue-700">900$</div>
+                                    <p class="text-xs text-blue-400">بدون كيلومترات محددة</p>
+                                </div>
+                                <button class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition transform active:scale-95 shadow-lg shadow-blue-200">
+                                    احجز الآن
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-12 flex justify-center space-x-reverse space-x-2">
+                    <button class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition shadow-sm">1</button>
+                    <button class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center hover:bg-blue-600 hover:text-white transition shadow-sm">2</button>
+                    <button class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center hover:bg-blue-600 hover:text-white transition shadow-sm">3</button>
+                    <button class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center hover:bg-blue-600 hover:text-white transition shadow-sm font-bold text-xl">»</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- 5. Footer (نفس الفوتر السابق) -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="container mx-auto px-6 text-center md:text-right grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <h4 class="text-2xl font-bold text-blue-500 mb-4 font-extrabold">Salam Tour</h4>
+                <p class="text-gray-400 text-sm">شريكك الموثوق في السفر والتنقل. خدماتنا تغطي جميع الفنادق والمطارات الرئيسية.</p>
+            </div>
+            <div class="flex justify-center gap-8">
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+            </div>
+            <div>
+                <p class="text-gray-400 text-sm">&copy; 2024 Salam Tour. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

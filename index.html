@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salam Tour | لتأجير السيارات والسياحة</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- 1. Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- الشعار واسم الوكالة المعدل -->
+            <div class="flex items-center">
+                <a href="/" class="flex items-center">
+                    <!-- ضع رابط صورتك (الشعار) هنا في الـ src -->
+                    <img src="رابط_شعارك_هنا.png" alt="Salam Tour Logo" class="h-10 w-auto ml-3 onerror='this.style.display=\"none\"'">
+                    <span class="text-2xl font-800 text-blue-700 font-bold">Salam Tour</span>
+                </a>
+            </div>
+
+            <div class="hidden md:flex space-x-reverse space-x-8 font-semibold text-gray-700">
+                <a href="#" class="hover:text-blue-600 transition">الرئيسية</a>
+                <a href="#cars" class="hover:text-blue-600 transition">السيارات</a>
+                <a href="#hotels" class="hover:text-blue-600 transition">الفنادق الشريكة</a>
+                <a href="#" class="hover:text-blue-600 transition">اتصل بنا</a>
+            </div>
+            <div class="flex items-center space-x-reverse space-x-4">
+                <a href="login.html" class="text-gray-600 font-semibold">دخول</a>
+                <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">سجل الآن</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section & Search Widget -->
+    <section class="hero-bg h-[500px] flex items-center justify-center text-center text-white px-4">
+        <div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 font-extrabold">Salam Tour</h1>
+            <p class="text-xl md:text-2xl text-gray-200">رحلتك تبدأ بسيارة مريحة.. استأجر سيارتك الآن بأفضل الأسعار</p>
+        </div>
+    </section>
+
+    <!-- Search Box -->
+    <div class="container mx-auto px-6 -mt-20 relative z-10">
+        <div class="bg-white p-6 rounded-2xl shadow-2xl grid grid-cols-1 md:grid-cols-4 gap-4 border-t-4 border-blue-600">
+            <div class="space-y-2">
+                <label class="block text-sm font-bold text-gray-700">موقع الاستلام</label>
+                <div class="relative">
+                    <i class="fas fa-location-dot absolute right-3 top-3.5 text-gray-400"></i>
+                    <input type="text" placeholder="المطار، مدينة، فندق..." class="w-full pr-10 p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <label class="block text-sm font-bold text-gray-700">تاريخ الاستلام</label>
+                <input type="date" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition">
+            </div>
+            <div class="space-y-2">
+                <label class="block text-sm font-bold text-gray-700">نوع السيارة</label>
+                <select class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none appearance-none cursor-pointer">
+                    <option>الكل</option>
+                    <option>اقتصادية</option>
+                    <option>فاخرة</option>
+                    <option>عائلة (SUV)</option>
+                </select>
+            </div>
+            <div class="flex items-end">
+                <button onclick="searchCars()" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl hover:bg-blue-700 transition shadow-lg transform hover:-translate-y-1 active:scale-95">
+                    ابحث الآن <i class="fas fa-search mr-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Featured Cars Section -->
+    <section id="cars" class="container mx-auto px-6 py-20">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800 underline decoration-blue-500 decoration-4 underline-offset-8">أفضل العروض الحالية</h2>
+            </div>
+            <a href="#" class="text-blue-600 font-bold hover:underline">مشاهدة الكل</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Car Card 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1542362567-b055002b91f4?auto=format&fit=crop&w=600&q=80" alt="Car" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">متاح لدى Salam Tour</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">بورش كايين 2024</h3>
+                    <div class="flex justify-between text-gray-500 text-sm mb-4">
+                        <span><i class="fas fa-gas-pump ml-1"></i> بنزين</span>
+                        <span><i class="fas fa-users ml-1"></i> 5 ركاب</span>
+                        <span><i class="fas fa-cog ml-1"></i> أتوماتيك</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t pt-4">
+                        <div class="text-blue-700 font-extrabold text-xl">150$ <span class="text-sm text-gray-400 font-normal">/ يوم</span></div>
+                        <a href="booking.html?name=Cayenne" class="bg-gray-100 text-gray-800 px-4 py-2 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition text-center">
+   احجز الآن
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Car Card 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="Car" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm">خصم العملاء</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">بي إم دبليو الفئة الخامسة</h3>
+                    <div class="flex justify-between text-gray-500 text-sm mb-4">
+                        <span><i class="fas fa-gas-pump ml-1"></i> بنزين</span>
+                        <span><i class="fas fa-users ml-1"></i> 5 ركاب</span>
+                        <span><i class="fas fa-cog ml-1"></i> أتوماتيك</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t pt-4">
+                        <div class="text-blue-700 font-extrabold text-xl">120$ <span class="text-sm text-gray-400 font-normal">/ يوم</span></div>
+                        <a href="booking.html?name=بي إم دبليو الفئة الخامسة&price=120&img=bmw.jpg" class="bg-gray-100 text-gray-800 px-4 py-2 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition text-center">
+   احجز الآن
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Car Card 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Car" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">تويوتا لاند كروزر</h3>
+                    <div class="flex justify-between text-gray-500 text-sm mb-4">
+                        <span><i class="fas fa-gas-pump ml-1"></i> ديزل</span>
+                        <span><i class="fas fa-users ml-1"></i> 7 ركاب</span>
+                        <span><i class="fas fa-cog ml-1"></i> 4x4</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t pt-4">
+                        <div class="text-blue-700 font-extrabold text-xl">180$ <span class="text-sm text-gray-400 font-normal">/ يوم</span></div>
+                        <a href="booking.html?name=تويوتا لاند كروزر&price=180&img=toyota.jpg" class="bg-gray-100 ...">
+   احجز الآن
+</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Hotel Partners Section -->
+    <section id="hotels" class="bg-gray-100 py-20 border-y border-gray-200">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">شركاء Salam Tour</h2>
+            <p class="text-gray-600 mb-12">استلم سيارتك من باب الفندق مع شركائنا المعتمدين</p>
+            <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition duration-500">
+                <div class="text-2xl font-bold">HILLTON CASABLANCA</div>
+                <div class="text-2xl font-bold">IBIS MARRAKECH</div>
+                <div class="text-2xl font-bold">SHERATON</div>
+                <div class="text-2xl font-bold">MOGADOR TANGER</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-4">
+                <div class="text-2xl font-bold text-blue-500">Salam Tour</div>
+                <p class="text-gray-400 leading-relaxed">الخيار الأول لتأجير السيارات والخدمات السياحية الاحترافية. نحن نهتم بأدق تفاصيل رحلتك.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-lg border-b border-gray-700 pb-2">روابط هامة</h4>
+                <ul class="text-gray-400 space-y-2">
+                    <li><a href="#" class="hover:text-blue-400 transition">من نحن</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">الأسطول</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">سياسة التأجير</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-lg border-b border-gray-700 pb-2">تواصل مع سلام تور</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><i class="fas fa-phone ml-2 text-blue-500"></i> +966 500 000 000</li>
+                    <li><i class="fas fa-envelope ml-2 text-blue-500"></i> contact@salam-tour.com</li>
+                    <li><i class="fas fa-map-marker-alt ml-2 text-blue-500"></i> الرياض، المملكة العربية السعودية</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-lg border-b border-gray-700 pb-2">النشرة الإخبارية</h4>
+                <div class="flex">
+                    <input type="email" placeholder="بريدك..." class="p-3 rounded-r-lg bg-gray-800 text-white outline-none w-full border border-gray-700 focus:border-blue-500">
+                    <button class="bg-blue-600 px-4 py-2 rounded-l-lg hover:bg-blue-700 transition">اشترك</button>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+            &copy; 2024 <span class="text-blue-500 font-bold">Salam Tour</span>. جميع الحقوق محفوظة.
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+<script>
+    function searchCars() {
+        const btn = event.currentTarget;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري البحث...';
+        btn.disabled = true;
+        
+        // هنا كنقولو للمتصفح يتسنى ثانية وحدة (باش نبينو أن الموقع خدام كيبحث)
+        // ومن بعد يصيفطنا لصفحة النتائج
+        setTimeout(() => {
+            window.location.href = "results.html"; // هادا هو السطر اللي كيربط الصفحات
+        }, 1000);
+    }
+</script>
+</body>
+</html>

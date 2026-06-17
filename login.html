@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | Salam Tour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .login-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+        }
+    </style>
+</head>
+<body class="login-bg h-screen flex items-center justify-center px-6">
+
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div class="p-8">
+            <!-- Logo -->
+            <div class="text-center mb-10">
+                <div class="flex justify-center items-center mb-2">
+                    <img src="رابط_شعارك_هنا.png" alt="Logo" class="h-10 ml-2">
+                    <span class="text-2xl font-800 text-blue-700 font-bold">Salam Tour</span>
+                </div>
+                <p class="text-gray-400 text-sm">مرحباً بك مجدداً، يرجى تسجيل الدخول</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">البريد الإلكتروني</label>
+                    <div class="relative">
+                        <i class="fas fa-envelope absolute right-3 top-3.5 text-gray-300"></i>
+                        <input type="email" id="email" required placeholder="admin@salamtour.com" 
+                            class="w-full pr-10 p-3.5 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-gray-50 transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">كلمة المرور</label>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute right-3 top-3.5 text-gray-300"></i>
+                        <input type="password" id="password" required placeholder="••••••••" 
+                            class="w-full pr-10 p-3.5 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-gray-50 transition">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs">
+                    <label class="flex items-center text-gray-500 cursor-pointer">
+                        <input type="checkbox" class="ml-2 w-4 h-4 rounded text-blue-600"> تذكرني
+                    </label>
+                    <a href="#" class="text-blue-600 font-bold hover:underline">نسيت كلمة المرور؟</a>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl hover:bg-blue-700 transition shadow-lg transform active:scale-95 flex items-center justify-center">
+                    دخول للنظام <i class="fas fa-arrow-left mr-2"></i>
+                </button>
+            </form>
+
+            <div class="mt-8 pt-6 border-t text-center">
+                <p class="text-xs text-gray-400">إذا واجهت مشكلة في الدخول، يرجى التواصل مع الدعم الفني</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // في الموقع الحقيقي، هنا نرسل البيانات لقاعدة البيانات للتأكد
+            // الآن سنقوم بعمل محاكاة بسيطة للتحويل:
+            
+            const btn = e.target.querySelector('button');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin ml-2"></i> جاري التحقق...';
+
+            setTimeout(() => {
+                // إذا كان الإيميل يحتوي على كلمة admin، حوله للوحة التحكم
+                if(email.includes('admin')) {
+                    window.location.href = 'admin.html';
+                } else {
+                    alert('عذراً، بيانات الدخول غير صحيحة');
+                    btn.innerHTML = 'دخول للنظام <i class="fas fa-arrow-left mr-2"></i>';
+                }
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

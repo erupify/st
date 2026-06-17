@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الحجز | Salam Tour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- 1. Navigation Bar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="رابط_شعارك_هنا.png" alt="Salam Tour Logo" class="h-10 w-auto ml-3">
+                    <span class="text-2xl font-800 text-blue-700 font-bold">Salam Tour</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-reverse space-x-4 text-sm text-gray-400">
+                <span class="text-blue-600 font-bold">1. اختيار السيارة</span>
+                <i class="fas fa-chevron-left text-xs"></i>
+                <span class="text-blue-600 font-bold border-b-2 border-blue-600">2. تفاصيل الحجز</span>
+                <i class="fas fa-chevron-left text-xs"></i>
+                <span>3. التأكيد والدفع</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-10">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- القسم الأيمن: الخيارات والبيانات -->
+            <div class="w-full lg:w-2/3 space-y-6">
+                
+                <!-- ملخص السيارة المختارة -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6">
+                    <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=300&q=80" class="w-full md:w-48 h-32 object-cover rounded-xl" alt="Car">
+                    <div class="flex-1">
+                        <h2 id="carName" class="text-xl font-bold text-gray-800">مرسيدس بنز E-Class 2023</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-4 text-sm text-gray-500">
+                            <span><i class="fas fa-users ml-1"></i> 5 مقاعد</span>
+                            <span><i class="fas fa-cog ml-1"></i> أتوماتيك</span>
+                            <span><i class="fas fa-snowflake ml-1"></i> تكييف</span>
+                            <span><i class="fas fa-gas-pump ml-1"></i> بنزين</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الإضافات (Add-ons) -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-bold mb-6 flex items-center">
+                        <i class="fas fa-plus-circle ml-2 text-blue-600"></i> خدمات إضافية (اختياري)
+                    </h3>
+                    <div class="space-y-4">
+                        <label class="flex items-center justify-between p-4 border rounded-xl cursor-pointer hover:bg-blue-50 transition">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="addon-checkbox w-5 h-5 text-blue-600 ml-4" data-price="25">
+                                <div>
+                                    <p class="font-bold text-gray-800 text-sm">تأمين شامل ذهبي</p>
+                                    <p class="text-xs text-gray-500">تغطية كاملة للأضرار والحوادث</p>
+                                </div>
+                            </div>
+                            <span class="font-bold text-blue-600">+25$</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-4 border rounded-xl cursor-pointer hover:bg-blue-50 transition">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="addon-checkbox w-5 h-5 text-blue-600 ml-4" data-price="10">
+                                <div>
+                                    <p class="font-bold text-gray-800 text-sm">مقعد طفل</p>
+                                    <p class="text-xs text-gray-500">مقعد آمن ومريح للأطفال</p>
+                                </div>
+                            </div>
+                            <span class="font-bold text-blue-600">+10$</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- بيانات العميل -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-bold mb-6 flex items-center">
+                        <i class="fas fa-id-card ml-2 text-blue-600"></i> بيانات السائق الرئيسي
+                    </h3>
+                    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-600">الاسم الكامل</label>
+                            <input type="text" placeholder="كما في الرخصة" class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-600">رقم الهاتف</label>
+                            <input type="tel" placeholder="+966" class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="space-y-1 md:col-span-2">
+                            <label class="text-xs font-bold text-gray-600">البريد الإلكتروني</label>
+                            <input type="email" placeholder="سوف نرسل العقد هنا" class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- القسم الأيسر: فاتورة ملخص السعر (Sticky Sidebar) -->
+            <div class="w-full lg:w-1/3">
+                <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-blue-50 sticky top-24">
+                    <h3 class="text-lg font-bold mb-4 border-b pb-4">ملخص السعر</h3>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between text-gray-600 text-sm">
+                            <span>سعر الإيجار (5 أيام)</span>
+                            <span id="carPrice" class="font-bold">650$</span>
+                        </div>
+                        <div id="addons-summary" class="space-y-3">
+                            <!-- الإضافات ستظهر هنا برمجياً -->
+                        </div>
+                        <div class="flex justify-between text-gray-600 text-sm">
+                            <span>الضريبة (15%)</span>
+                            <span class="font-bold">97.5$</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-dashed pt-4 mb-6">
+                        <div class="flex justify-between items-center text-xl font-extrabold text-blue-700">
+                            <span>الإجمالي</span>
+                            <span id="total-price">747.5$</span>
+                        </div>
+                    </div>
+
+                    <button onclick="confirmBooking()" class="w-full bg-green-600 text-white font-bold py-4 rounded-xl hover:bg-green-700 transition shadow-lg flex items-center justify-center">
+                        <i class="fas fa-check-circle ml-2"></i> تأكيد الحجز الآن
+                    </button>
+                    
+                    <p class="text-[10px] text-gray-400 text-center mt-4 leading-relaxed">
+                        بالضغط على تأكيد، أنت توافق على شروط Salam Tour وسياسة الخصوصية وتوليد عقد تأجير إلكتروني.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const basePrice = 747.5; // السعر الأساسي مع الضريبة
+        const checkboxes = document.querySelectorAll('.addon-checkbox');
+        const totalPriceEl = document.getElementById('total-price');
+
+        checkboxes.forEach(box => {
+            box.addEventListener('change', () => {
+                let extra = 0;
+                checkboxes.forEach(b => {
+                    if(b.checked) extra += parseFloat(b.getAttribute('data-price'));
+                });
+                totalPriceEl.innerText = (basePrice + extra).toFixed(2) + '$';
+            });
+        });
+
+        function confirmBooking() {
+            alert('تم تأكيد طلبك بنجاح! جاري تحويلك لبوابة الدفع وتوليد العقد بصيغة PDF...');
+        }
+    </script>
+
+<script>
+    // 1. كود كيجيب المعلومات من الرابط (URL)
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const price = urlParams.get('price');
+    const img = urlParams.get('img');
+
+    // 2. إيلا لقاو المعلومات، كيحطوهم في بلاصتهم في الصفحة
+    if (name) {
+        document.getElementById('carName').innerText = name;
+    }
+    
+    if (price) {
+        // تحديث سعر الإيجار (نضرب الثمن في 5 أيام مثلاً)
+        const totalBase = parseFloat(price) * 5;
+        document.getElementById('carPrice').innerText = totalBase + '$';
+        
+        // تحديث المجموع النهائي (مع الضريبة 15% مثلاً)
+        const tax = totalBase * 0.15;
+        document.title = "حجز " + name + " | Salam Tour";
+        document.getElementById('total-price').innerText = (totalBase + tax).toFixed(2) + '$';
+    }
+</script>
+
+</body>
+</html>
